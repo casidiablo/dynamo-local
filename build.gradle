@@ -1,4 +1,4 @@
-group 'aws'
+group 'com.github.casidiablo'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -19,7 +19,6 @@ dependencies {
     compile 'org.eclipse.jetty:jetty-overlay-deployer:9.1.0.M0'
     compile 'org.eclipse.jetty:jetty-policy:8.1.18.v20150929'
     compile 'org.eclipse.jetty:jetty-rewrite:9.3.7.v20160115'
-    compile 'org.eclipse.jetty.aggregate:jetty-websocket:8.1.18.v20150929'
     compile 'org.eclipse.jetty.spdy:spdy-jetty-http:8.1.18.v20150929'
     compile 'com.amazonaws:aws-java-sdk:1.10.20'
     compile 'org.apache.logging.log4j:log4j-core:2.5'
