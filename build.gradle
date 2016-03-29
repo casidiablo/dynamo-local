@@ -6,7 +6,9 @@ apply plugin: 'java'
 repositories {
     mavenCentral()
 }
-
+configurations{
+    localLib
+}
 dependencies {
     compile 'org.eclipse.jetty:jetty-ajp:8.1.18.v20150929'
     compile 'org.eclipse.jetty:jetty-annotations:9.3.7.v20160115'
@@ -27,14 +29,11 @@ dependencies {
     compile 'org.antlr:antlr4-runtime:4.5.2-1'
 
     compile files('libs/DynamoDBLocal.jar')
+    localLib files('libs/DynamoDBLocal.jar')
 }
 
-task modelJar(type: Jar) {
-    classifier = 'model'
-    from sourceSets.main.output
-    include '**'
-}
-
-artifacts {
-    archives modelJar
+jar {
+    from configurations.localLib.collect {
+        zipTree(it)
+    }
 }
