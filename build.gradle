@@ -2,7 +2,6 @@ group 'aws'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-apply plugin: 'maven'
 
 repositories {
     mavenCentral()
@@ -29,4 +28,14 @@ dependencies {
     compile 'org.antlr:antlr4-runtime:4.5.2-1'
 
     compile files('libs/DynamoDBLocal.jar')
+}
+
+task modelJar(type: Jar) {
+    classifier = 'model'
+    from sourceSets.main.output
+    include '**'
+}
+
+artifacts {
+    archives modelJar
 }
