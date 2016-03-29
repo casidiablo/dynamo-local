@@ -45,7 +45,7 @@ public class DynamoLocal {
 
     public AmazonDynamoDBClient buildDynamoClient() {
         AmazonDynamoDBClient dynamoClient = new AmazonDynamoDBClient(new DefaultAWSCredentialsProviderChain());
-        dynamoClient.setEndpoint("http://localhost:$port");
+        dynamoClient.setEndpoint("http://localhost:" + port);
         return dynamoClient;
     }
 
